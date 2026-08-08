@@ -1,5 +1,3 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import {
   Layers,
   Cable,
@@ -35,18 +33,10 @@ const capabilities = [
 ];
 
 const WhatICanDoSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section id="capabilities" className="py-24 relative" ref={ref}>
+    <section id="capabilities" className="py-24 relative">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div data-reveal className="text-center mb-16">
           <h2 className="section-heading">
             What I <span className="text-gradient">Can Do</span>
           </h2>
@@ -54,16 +44,17 @@ const WhatICanDoSection = () => {
             Practical strengths shaped by internships, product work, and
             building real systems
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-          {capabilities.map((item, index) => (
-            <motion.div
+        <div
+          data-reveal-stagger
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6"
+        >
+          {capabilities.map((item) => (
+            <div
               key={item.title}
-              initial={{ opacity: 0, y: 32 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
               className="skill-card group h-full p-6 flex flex-col"
+              data-cursor="grow"
             >
               <div className="mb-5 w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 group-hover:bg-primary/15 transition-colors">
                 <item.icon size={22} />
@@ -74,7 +65,7 @@ const WhatICanDoSection = () => {
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {item.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -4,13 +4,11 @@ import NotFound from "./pages/NotFound";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollAnimations from "@/components/ScrollAnimations";
-import ScrollProgress from "@/components/ScrollProgress";
 
 const App = () => (
   <BrowserRouter>
     <SmoothScroll>
       <CustomCursor />
-      <ScrollProgress />
       <ScrollAnimations />
       <Routes>
         <Route path="/" element={<Index />} />
