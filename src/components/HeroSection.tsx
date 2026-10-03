@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Code2, Boxes, Server, Download } from "lucide-react";
 
@@ -43,83 +42,73 @@ const HeroSection = () => {
   return (
     <section
       id="home"
+      data-hero-animate
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-24"
     >
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-8 items-center">
           <div className="text-center lg:text-left">
             {/* Greeting */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+            <h1
+              data-hero-item
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
             >
               <span className="text-foreground">Hi </span>{" "}
               <span className="text-gradient">I 'm</span>
-            </motion.h1>
+            </h1>
 
             {/* Name */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
+            <h1
+              data-hero-item
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
             >
               <span className="text-foreground">Ramisa Anan</span>{" "}
               <span className="text-gradient">Orni</span>
-            </motion.h1>
+            </h1>
 
             {/* Animated Role */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+            <div
+              data-hero-item
               className="h-12 md:h-16 flex items-center justify-center lg:justify-start mb-6"
             >
               <span className="text-xl md:text-3xl font-medium text-muted-foreground">
                 {displayText}
                 <span className="text-primary animate-pulse">|</span>
               </span>
-            </motion.div>
+            </div>
 
             {/* Tagline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+            <p
+              data-hero-item
               className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0"
             >
               Building scalable systems and innovative real-world applications.
               <br />
               <span className="text-primary/80 italic">"Crafting mind and body."</span>
-            </motion.p>
+            </p>
 
             {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+            <div
+              data-hero-item
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10"
             >
-              <a href="#projects" className="btn-primary">
+              <a href="#projects" className="btn-primary" data-cursor="grow">
                 View Projects
               </a>
               <a
                 href="/Ramisa_Anan_Orni_CV.pdf"
                 download="Ramisa_Anan_Orni_CV.pdf"
                 className="btn-cv group"
+                data-cursor="grow"
               >
                 <Download size={18} className="group-hover:animate-bounce" />
                 Download CV
               </a>
-            </motion.div>
+            </div>
 
             {/* Quick Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
+            <div
+              data-hero-item
               className="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0"
             >
               {[
@@ -129,25 +118,24 @@ const HeroSection = () => {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="group flex flex-col items-center gap-2 p-4 rounded-xl bg-card/30 border border-border/30 card-glow glow-effect-sm hover:glow-effect hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/10 hover:scale-105 transform-gpu hover:shadow-lg transition-all duration-200"
+                  className="group flex flex-col items-center gap-2 p-4 rounded-xl bg-card/70 border border-border/40 card-glow glow-effect-sm hover:glow-effect hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:scale-105 transform-gpu hover:shadow-lg transition-all duration-200"
                 >
-                  <item.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-200" />
-                  <span className="text-xs text-muted-foreground group-hover:text-white transition-colors duration-200">{item.label}</span>
+                  <item.icon className="w-6 h-6 text-primary group-hover:text-accent transition-colors duration-200" />
+                  <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-200">{item.label}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {/* Right GIF Panel */}
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
+          <div
+            data-hero-item
+            data-parallax="0.08"
             className="relative w-full max-w-xl mx-auto lg:mx-0"
           >
             {isGifVisible ? (
-              <div className="relative rounded-3xl border border-border/50 bg-card/35 p-3 shadow-[0_30px_100px_hsl(187_100%_40%_/_0.18)] overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-cyan-300/5 pointer-events-none" />
+              <div className="relative rounded-3xl border border-border/50 bg-card/70 p-3 shadow-[0_30px_80px_hsl(41_76%_60%_/_0.16)] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 pointer-events-none" />
                 <img
                   src="/pixelated_gif.gif"
                   alt="Pixelated boy coding animation"
@@ -161,7 +149,7 @@ const HeroSection = () => {
                 Add your GIF to public/pixelated_gif.gif and it will appear on the right side here.
               </div>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

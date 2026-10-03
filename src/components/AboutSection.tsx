@@ -1,19 +1,16 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Zap, ShieldCheck, Target } from "lucide-react";
+import { Zap, ShieldCheck, Target, GraduationCap } from "lucide-react";
 
-const stats = [
+const education = [
   {
-    value: "3",
-    label: "internships across product, analysis, and engineering",
+    degree: "B.Sc. in Computer Science and Engineering",
+    school: "BRAC University",
+    location: "Dhaka",
+    detail: "CGPA: 3.5+",
   },
   {
-    value: "3",
-    label: "featured projects spanning web, commerce, and IoT",
-  },
-  {
-    value: "2026",
-    label: "building production-facing full-stack features",
+    degree: "Higher Secondary Certificate (H.S.C)",
+    school: "BAF Shaheen College",
+    location: "Dhaka",
   },
 ];
 
@@ -45,35 +42,24 @@ const priorities = [
 ];
 
 const AboutSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section id="about" className="py-24 relative" ref={ref}>
+    <section id="about" className="py-24 relative">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="section-heading">
             Who You're <span className="text-gradient">Hiring</span>
           </h2>
           <p className="section-subheading mx-auto">
             Building useful systems with clarity and intent
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid lg:grid-cols-[1.35fr_1fr] gap-8 lg:gap-10 items-start">
-          {/* Left column */}
+        <div
+          data-reveal-stagger
+          className="grid lg:grid-cols-[1.35fr_1fr] gap-8 lg:gap-10 items-start"
+        >
           <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="skill-card p-6 md:p-7"
-            >
+            <div className="skill-card p-6 md:p-7">
               <div className="flex items-start gap-4 mb-5">
                 <div className="w-16 h-16 rounded-xl border border-primary/30 bg-primary/10 flex items-center justify-center shrink-0">
                   <span className="text-xl font-bold text-primary tracking-tight">
@@ -118,32 +104,41 @@ const AboutSection = () => {
                   <p className="text-sm font-medium text-primary">Active</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.18 }}
-              className="grid sm:grid-cols-3 gap-3"
-            >
-              {stats.map((stat) => (
-                <div key={stat.value + stat.label} className="skill-card p-4">
-                  <p className="text-2xl font-bold text-gradient mb-2">
-                    {stat.value}
-                  </p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {stat.label}
-                  </p>
+            <div className="skill-card p-6">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center border border-primary/20">
+                  <GraduationCap size={18} />
                 </div>
-              ))}
-            </motion.div>
+                <p className="text-primary text-xs font-semibold tracking-[0.18em] uppercase">
+                  Education
+                </p>
+              </div>
+              <div className="space-y-5">
+                {education.map((item) => (
+                  <div
+                    key={item.degree}
+                    className="pl-4 border-l border-primary/30"
+                  >
+                    <h4 className="text-sm font-semibold text-foreground mb-1">
+                      {item.degree}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {item.school}{" "}
+                      <span className="text-primary/80">| {item.location}</span>
+                    </p>
+                    {item.detail ? (
+                      <p className="text-xs text-primary mt-1.5 font-medium">
+                        {item.detail}
+                      </p>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.34 }}
-              className="skill-card p-6"
-            >
+            <div className="skill-card p-6">
               <p className="text-primary text-xs font-semibold tracking-[0.18em] uppercase mb-3">
                 Working Style
               </p>
@@ -152,16 +147,11 @@ const AboutSection = () => {
                 system, build carefully, test what matters, and document so the
                 next person can move with confidence.
               </p>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Right column */}
           <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
+            <div>
               <p className="text-primary text-xs font-semibold tracking-[0.18em] uppercase mb-3">
                 // Core Philosophy
               </p>
@@ -189,13 +179,9 @@ const AboutSection = () => {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.28 }}
-            >
+            <div>
               <p className="text-primary text-xs font-semibold tracking-[0.18em] uppercase mb-3">
                 Current Priorities
               </p>
@@ -209,7 +195,7 @@ const AboutSection = () => {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
