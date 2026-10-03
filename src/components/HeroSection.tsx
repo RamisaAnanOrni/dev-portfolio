@@ -128,12 +128,12 @@ const HeroSection = () => {
           </div>
 
           {/* Right GIF Panel */}
-          <div
-            data-hero-item
-            data-parallax="0.08"
-            className="relative w-full max-w-xl mx-auto lg:mx-0"
-          >
-            {isGifVisible ? (
+          {isGifVisible && (
+            <div
+              data-hero-item
+              data-parallax="0.08"
+              className="relative w-full max-w-xl mx-auto lg:mx-0"
+            >
               <div className="relative rounded-3xl border border-border/50 bg-card/70 p-3 shadow-[0_30px_80px_hsl(41_76%_60%_/_0.16)] overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 pointer-events-none" />
                 <img
@@ -144,12 +144,8 @@ const HeroSection = () => {
                   onError={() => setIsGifVisible(false)}
                 />
               </div>
-            ) : (
-              <div className="rounded-2xl border border-dashed border-border/60 bg-card/20 px-6 py-5 text-sm text-muted-foreground text-center">
-                Add your GIF to public/pixelated_gif.gif and it will appear on the right side here.
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

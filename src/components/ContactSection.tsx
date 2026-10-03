@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Github, Linkedin, Mail, ArrowUpRight, Phone, Copy } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUpRight, Copy } from "lucide-react";
 
 const socials = [
   {
@@ -72,24 +72,6 @@ const ContactSection = () => {
             </button>
 
             <div className="mt-4 text-sm">
-              <div className="inline-flex items-center gap-3 text-muted-foreground">
-                <Phone className="w-5 h-5 text-primary" />
-                <a
-                  href="tel:9822446744"
-                  className="font-medium text-foreground"
-                >
-                  9822446744
-                </a>
-                <button
-                  type="button"
-                  aria-label="Copy phone"
-                  onClick={() => navigator.clipboard?.writeText("9822446744")}
-                  className="p-2 rounded-md bg-secondary/10 hover:bg-secondary/20 transition-colors"
-                >
-                  <Copy className="w-4 h-4 text-muted-foreground" />
-                </button>
-              </div>
-
               <EmailCopyRow />
             </div>
           </div>
